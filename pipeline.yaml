@@ -1,0 +1,16 @@
+tasks:
+  - name: npm-install
+    taskRef:
+      name: npm
+
+  - name: tests
+    taskRef:
+      name: jasmine
+    runAfter:
+      - npm-install
+
+  - name: build
+    taskRef:
+      name: buildah
+    runAfter:
+      - tests
